@@ -501,7 +501,29 @@ create_html_page() {
         echo '</div></div>' # divbody and divbodyholder 
         disqus_footer
         [[ -n $body_end_file ]] && cat "$body_end_file"
-        echo '</body></html>'
+        echo '</body></html>
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<script>
+//Get the button
+var mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>'
     } > "$filename"
 }
 
@@ -945,7 +967,7 @@ make_rss() {
 create_includes() {
     {
         echo "<h1 class=\"nomargin\"><a class=\"ablack\" href=\"$global_url/$index_file\">$global_title</a></h1>" 
-        echo "<div id=\"description\">$global_description</div>"
+        echo "<div id=\"description\">$global_description <br/> <a href="all_posts.html">Post Archive</a> | <a href="https://caylak.truvalinux.org.tr/p/iletisim.html" target="_blank">Contact</a> </div> "
     } > ".title.html"
 
     if [[ -f $header_file ]]; then cp "$header_file" .header.html
@@ -968,7 +990,7 @@ create_includes() {
         protected_mail=${global_email//@/&#64;}
         protected_mail=${protected_mail//./&#46;}
         echo "<div id=\"footer\">$global_license <a href=\"$global_author_url\">$global_author</a> &mdash; <a href=\"mailto:$protected_mail\">$protected_mail</a><br/>"
-        echo 'Generated with <a href="https://github.com/cfenollosa/bashblog">bashblog</a>, a single bash script to easily create blogs like this one</div>'
+        echo 'Generated with <a href="https://github.com/cfenollosa/bashblog">bashblog</a>, a single bash script to easily create blogs like this one | <a href="#top">&#47;&#92;</a></div>'
         } >> ".footer.html"
     fi
 }
@@ -982,7 +1004,7 @@ delete_includes() {
 create_css() {
     # To avoid overwriting manual changes. However it is recommended that
     # this function is modified if the user changes the blog.css file
-    (( ${#css_include[@]} > 0 )) && return || css_include=('main.css' 'blog.css')
+    (( ${#css_include[@]} > 0 )) && return || css_include=('main.css' 'blog.css' 'custom.css')
     if [[ ! -f blog.css ]]; then 
         # blog.css directives will be loaded after main.css and thus will prevail
         echo '#title{font-size: x-large;}
@@ -1022,6 +1044,41 @@ create_css() {
         blockquote{background-color:#f9f9f9;border-left:solid 4px #e9e9e9;margin-left:12px;padding:12px 12px 12px 24px;}
         blockquote img{margin:12px 0px;}
         blockquote iframe{margin:12px 0px;}' > main.css
+echo 'pre {
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    border-left: 3px solid #f36d33;
+    color: #666;
+    page-break-inside: avoid;
+    font-family: monospace;
+    font-size: 12px;
+    line-height: 1.6;
+    margin-bottom: 1.6em;
+    max-width: 100%;
+    overflow: auto;
+    padding: 1em 1.5em;
+    display: block;
+    word-wrap: break-word;
+}
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+#myBtn:hover {
+  background-color: #555;
+}' > custom.css
     fi
 }
 
