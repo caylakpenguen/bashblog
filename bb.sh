@@ -138,7 +138,7 @@ global_variables() {
     template_twitter_comment="&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;"
     
     # The locale to use for the dates displayed on screen
-    date_format="%B %d, %Y"
+    date_format="%B %d, %Y - %T"
     date_locale="C"
     date_inpost="bashblog_timestamp"
     # Don't change these dates
