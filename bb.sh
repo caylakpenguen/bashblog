@@ -966,7 +966,7 @@ make_rss() {
 # generate headers, footers, etc
 create_includes() {
     {
-        echo "<h1 class=\"nomargin\"><a class=\"ablack\" href=\"$global_url/$index_file\">$global_title</a></h1>" 
+        echo "<img src="resimler/avatar.png" alt="avatar" border="0" align="right"> <h1 class=\"nomargin\"><a class=\"ablack\" href=\"$global_url/$index_file\">$global_title</a></h1>" 
         echo "<div id=\"description\">$global_description <br/> <a href="all_posts.html">Post Archive</a> | <a href="https://caylak.truvalinux.org.tr/p/iletisim.html" target="_blank">Contact</a> </div> "
     } > ".title.html"
 
@@ -1029,16 +1029,16 @@ create_css() {
         ln -s "../style.css" "main.css" 
     elif [[ ! -f main.css ]]; then
         echo 'body{font-family:Georgia,"Times New Roman",Times,serif;margin:0;padding:0;background-color:#F3F3F3;}
-        #divbodyholder{padding:5px;background-color:#DDD;width:100%;max-width:874px;margin:24px auto;}
+        #divbodyholder{padding:8px;background-color:#608cdd;width:100%;max-width:874px;margin:24px auto;}
         #divbody{border:solid 1px #ccc;background-color:#fff;padding:0px 48px 24px 48px;top:0;}
         .headerholder{background-color:#f9f9f9;border-top:solid 1px #ccc;border-left:solid 1px #ccc;border-right:solid 1px #ccc;}
-        .header{width:100%;max-width:800px;margin:0px auto;padding-top:24px;padding-bottom:8px;}
+        .header{width:100%;max-width:800px;margin:50px auto;padding-top:24px;padding-bottom:8px;color:#00557f;}
         .content{margin-bottom:5%;}
         .nomargin{margin:0;}
         .description{margin-top:10px;border-top:solid 1px #666;padding:10px 0;}
-        h3{font-size:20pt;width:100%;font-weight:bold;margin-top:32px;margin-bottom:0;}
+        h3{font-size:20pt;width:100%;font-weight:bold;margin-top:32px;margin-bottom:0;color:#67597f;}
         .clear{clear:both;}
-        #footer{padding-top:10px;border-top:solid 1px #666;color:#333333;text-align:center;font-size:small;font-family:"Courier New","Courier",monospace;}
+        #footer{padding-top:10px;border-top:solid 2px #666;color:#333333;text-align:center;font-size:small;font-family:"Courier New","Courier",monospace;}
         a{text-decoration:none;color:#003366 !important;}
         a:visited{text-decoration:none;color:#336699 !important;}
         blockquote{background-color:#f9f9f9;border-left:solid 4px #e9e9e9;margin-left:12px;padding:12px 12px 12px 24px;}
