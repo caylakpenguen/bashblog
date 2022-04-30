@@ -1,7 +1,7 @@
 bashblog
 ========
 
-[![screenshot](https://caylak.freemyip.com)](https://raw.githubusercontent.com/caylakpenguen/bashblog/master/screenshot.png)
+[![MyBlog](https://raw.githubusercontent.com/caylakpenguen/bashblog/master/screenshot.png)](https://caylak.freemyip.com)
 
 A single Bash script to create blogs. 
 
