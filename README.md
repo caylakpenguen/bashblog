@@ -1,6 +1,8 @@
 bashblog
 ========
 
+![screenshot]()https://raw.githubusercontent.com/caylakpenguen/bashblog/master/screenshot.png)
+
 A single Bash script to create blogs. 
 
 I created it because I wanted a very, very simple way to post entries to a blog by using a public folder on my server, without any special requirements and dependencies. Works on GNU/Linux, OSX and BSD.
